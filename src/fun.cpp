@@ -19,11 +19,9 @@ unsigned int faStr1(const char *str) {
                 digitFlag = false;
                 wordFlag = false;
             }
-        }
-        else if (isdigit(str[i])) {
+        } else if (isdigit(str[i])) {
             digitFlag = true;
-        }
-        else {
+        } else {
             wordFlag = true;
         }
     }
@@ -42,16 +40,11 @@ unsigned int faStr2(const char *str) {
         if (isalpha(str[i]) && startWord && isupper(str[i])) {
             upAlphaFlag = true;
             startWord = false;
-        }
-
-        else if (startWord && isalpha(str[i]) && !isupper(str[i])) {
+        } else if (startWord && isalpha(str[i]) && !isupper(str[i])) {
             correctWord = false;
-        }
-
-        else if ((isalpha(str[i]) && upAlphaFlag && !islower(str[i]))) {
+        } else if ((isalpha(str[i]) && upAlphaFlag && !islower(str[i]))) {
             correctWord = false;
-        }
-        else if (!isalpha(str[i]) && !isblank(str[i])) {
+        } else if (!isalpha(str[i]) && !isblank(str[i])) {
             correctWord = false;
         }
 
