@@ -1,5 +1,6 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
+#include <cstring>
 #include <string>
 #include <cmath>
 
@@ -10,7 +11,7 @@ unsigned int faStr1(const char *str) {
     bool digitFlag = false;
 
     for (int i = 0; i < size; i++) {
-        if (isblank(str[i]) || i == size - 1) {
+        if (std::isblank(str[i]) || i == size - 1) {
             if (wordFlag) {
                 if (!digitFlag) {
                     count++;
@@ -26,7 +27,6 @@ unsigned int faStr1(const char *str) {
             wordFlag = true;
         }
     }
-
     return count;
 }
 
@@ -42,18 +42,15 @@ unsigned int faStr2(const char *str) {
             upAlphaFlag = true;
             startWord = false;
         }
-
         else if (startWord && isalpha(str[i]) && !isupper(str[i])) {
             correctWord = false;
         }
-
         else if ((isalpha(str[i]) && upAlphaFlag && !islower(str[i]))) {
             correctWord = false;
         }
         else if (!isalpha(str[i]) && !isblank(str[i])) {
             correctWord = false;
         }
-
         if (isblank(str[i]) || i == size - 1) {
             if (correctWord && !startWord && upAlphaFlag) {
                 count++;
@@ -63,7 +60,6 @@ unsigned int faStr2(const char *str) {
             startWord = true;
         }
     }
-
     return count;
 }
 
@@ -85,6 +81,5 @@ unsigned int faStr3(const char *str) {
             }
         }
     }
-
     return round((alphaCount * 1.0) / wordCount);
 }
